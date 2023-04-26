@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+<!-- EditText element which lets user enter/modify text
+     app:layout_constraintStart_toStartOf="parent"
+     above constraint follows the form app:layout_constraint<Source>_to<Target>Of
+     where <Source> refers to the current view and..
+     ..<Target> refers to edge of target view that current view is being constrained to -->
+    <EditText
+        android:id="@+id/cost_of_service"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="@string/cost_of_service" />
+
+<!--  app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cost_of_service"
+      this will vertically and horizontally align components(textview, button, edittext, etc)
+          This adds a vertical constraint to the textview..
+            ..to constrain the top edge of textview to the bottom edge of cost of service view
+          And adds a horizontal constraint to the textview..
+            ..to constrain its starting edge to the starting edge of the parent -->
+    <TextView
+        android:id="@+id/service_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/how_was_the_service"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cost_of_service" />
+
+<!-- android:orientation="vertical"
+        the above code orientates the radio buttons vertically
+     android:checkedButton="@id/option_twenty_percent"
+        the above code assigns a default radio button checked -->
+    <RadioGroup
+        android:id="@+id/tip_options"
+        android:checkedButton="@id/option_twenty_percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_question"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/option_twenty_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amazing_20" />
+        <RadioButton
+            android:id="@+id/option_eighteen_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amazing_18" />
+        <RadioButton
+            android:id="@+id/option_fifteen_percent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amazing_15" />
+    </RadioGroup>
+
+
+<!-- android:layout_width="0dp"
+        the above code constrains the start and end edges of the view by setting the width to 0dp
+        setting the width to 0dp tells the system not to calculate the width..
+        ..but to match the constraints that are on the view
+            you cannot use match_parent on UI elements in a ConstrainLayout, instead use 0dp to match constraints
+        android:checked="true"
+            the above code sets a switch to appear on by default
+        -->
+    <Switch
+        android:id="@+id/round_up_switch"
+        android:checked="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Round up tip?"
+        app:layout_constraintStart_toStartOf="@+id/tip_options"
+        app:layout_constraintTop_toBottomOf="@+id/tip_options"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/calculate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/round_up_switch"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tip_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Tip amount: $10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculate_button" />
+
+<!-- xmlns stands for XML namespace.
+    Each line defines a schema, or vocab for attributes related to those words -->
+
+<!-- ConstraintLayout is part of android Jetpack which contains libraries of code..
+    ..offering additional functionality on top of the core android platform
+    tags that start with androidx, are UI components that are part of Jetpack-->
+</androidx.constraintlayout.widget.ConstraintLayout>
