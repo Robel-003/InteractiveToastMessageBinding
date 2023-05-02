@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<!-- a card view contains a group of views while providing consistent styling for the container -->
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <!-- since there are two views, need to place them as children views within a view group
+            LinearLayout arranges the views in a vertical column..
+            ..and aligns child views in a single direction (vertically or horizontally)
+                android:orientation="vertical"> <- this aligns the views in an orientation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+    <!-- This textview is going to display the affirmations one view at a time
+            Don't need a viewgroup around layout b/c
+            this item layout will be inflated and added as a child to the parent recyclerview  -->
+        <ImageView
+            android:id="@+id/item_image"
+            android:layout_width="match_parent"
+            android:layout_height="194dp"
+            android:scaleType="centerCrop"
+            android:importantForAccessibility="no"/>
+
+        <!-- android:padding="16dp" <- adds padding to the layout and text
+                android:textAppearance="?attr/textAppearanceHeadline6" <- attribute that styles the text
+        -->
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

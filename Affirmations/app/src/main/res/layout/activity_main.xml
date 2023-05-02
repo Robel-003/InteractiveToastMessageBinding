@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- this layout (FrameLayout) only holds and position a single child view -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- recycler view supports displaying items in different ways (linear list or grid)
+            Arranging items are handled by LayoutManager.
+            app:layoutManager="LinearLayoutManager" <- Below displays items as vertical list -->
+    <!-- To scroll through vertical list longer than screen, need to add a vertical scrollbar
+           android:scrollbars="vertical" -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layoutManager="LinearLayoutManager" />
+
+
+</FrameLayout>
+
+<!-- this layout (constraintlayout) is flexible and positions multiple child views in a layout -->
+<!--<androidx.constraintlayout.widget.ConstraintLayout-->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".MainActivity">-->
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
